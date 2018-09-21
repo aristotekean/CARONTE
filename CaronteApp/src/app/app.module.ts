@@ -3,8 +3,16 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 // Router
-
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
+// FireStore
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+// Services
+import { CrudService } from './services/crud.service';
+
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -26,9 +34,11 @@ import { RegisterComponent } from './components/register/register.component';
   imports: [
     BrowserModule,
     TranslateModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

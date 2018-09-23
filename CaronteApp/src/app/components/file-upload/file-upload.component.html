@@ -1,0 +1,29 @@
+<div class="bx--form-item">
+    <strong class="bx--label">Account photo</strong>
+    <p class="bx--label-description">Solo se permiten imagenes en formato .jpg y .png files.</p>
+    <div class="bx--file" data-file>
+      <label
+        for="myFile"
+        class="bx--file-btn bx--btn bx--btn--secondary"
+        role="button"
+        tabindex="0">Add files</label>
+      <input
+        type="file"
+        class="bx--file-input"
+        id="myFile"
+        data-file-uploader
+        data-target="[data-file-container]"
+        multiple
+      />
+      <div data-file-container class="bx--file-container"></div>
+    </div>
+
+    <div class="bx--form-item">
+        <label for="text-input-3" class="bx--label">Text Input label</label>
+        <input [(ngModel)]="imgUrl" id="text-input-3" type="text" class="bx--text-input" placeholder="Optional placeholder text">
+    </div>
+    <button (click)="getUrl(imgUrl)" class="bx--btn bx--btn--secondary"  type="button">Button</button>
+
+</div>
+
+{{ datos | json }}

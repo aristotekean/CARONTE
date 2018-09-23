@@ -1,3 +1,22 @@
-<p>
-  search works!
-</p>
+<div class="header">
+  <h1 class="brand">CARONTE</h1>
+</div>
+
+<div class="bx--grid bottom">
+
+  <div class="bx--row">
+    <div class="bx--offset-xs-2 bx--col-xs-10">
+
+        <h1>File upload</h1>
+        <app-file-upload></app-file-upload>
+
+    </div>
+  </div>
+
+  <div class="bx--row">
+    <div class="bx--offset-xs-2 bx--col-xs-10" *ngFor="let users of users">
+      <h1>Test: {{ users.data.test }}</h1>
+    </div>
+  </div>
+
+</div>

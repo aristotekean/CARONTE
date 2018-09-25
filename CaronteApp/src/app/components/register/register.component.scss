@@ -1,0 +1,34 @@
+.bx--text-input{
+    background-color: #ffffff
+}
+
+.bx--tile{
+
+    min-width: 128/8
+
+}
+
+#bgvid {
+    position: relative;
+    right: 0;
+    
+    z-index: -10;
+    width: 100%;
+    height: 10;
+}
+
+
+.brand {
+  font-weight: bold;
+  font-size: 5.25rem;
+  color: #41d6c3;
+  text-align: center;
+}
+
+.content {
+    position: static;
+    
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 20px;
+  }

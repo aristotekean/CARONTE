@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { HttpModule } from '@angular/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 // Router
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -15,7 +12,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 // Services
 import { CrudService } from './services/crud.service';
-import { FaceApiService } from './services/face-api.service';
 
 
 // Componentes
@@ -25,7 +21,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -34,22 +29,16 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     NavbarComponent,
     FooterComponent,
     SearchComponent,
-    RegisterComponent,
-    FileUploadComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     TranslateModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
-    AppRoutingModule,
-    HttpModule
+    AppRoutingModule
   ],
-  providers: [
-    CrudService,
-    FaceApiService
-  ],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

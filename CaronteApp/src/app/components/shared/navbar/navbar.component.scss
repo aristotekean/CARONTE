@@ -9,9 +9,11 @@ nav a {
   float: left;
   font-size: 1.125rem;
   color: white;
-  padding: 15px;
+  margin: 15px;
   text-decoration: none;
 }
+
+nav a:hover {}
 
 #logo {
 

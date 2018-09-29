@@ -20,6 +20,7 @@ import { FaceApiService } from './services/face-api.service';
 
 // Componentes
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -30,6 +31,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 @NgModule({
   declarations: [
     AppComponent,
+    
     HomeComponent,
     NavbarComponent,
     FooterComponent,

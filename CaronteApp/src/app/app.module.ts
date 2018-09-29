@@ -29,6 +29,7 @@ import { DropZoneDirective } from './directives/drop-zone.directive';
 
 // Componentes
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -44,6 +45,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
 @NgModule({
   declarations: [
     AppComponent,
+    
     HomeComponent,
     NavbarComponent,
     FooterComponent,

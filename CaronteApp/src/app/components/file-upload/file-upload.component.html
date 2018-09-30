@@ -7,12 +7,52 @@
         <p class="bx--label-description">
           <span class="bx--tag bx--tag--third-party">IMPORTANTE</span>
           Solo se permiten imágenes en formato .jpg y .png</p>
-        <div class="bx--file" data-file>
-          <label for="myFile" class="bx--file-btn bx--btn bx--btn--secondary" role="button" tabindex="0">Subir foto</label>
-          <input type="file" class="bx--file-input" id="myFile" data-file-uploader data-target="[data-file-container]"
-            multiple />
-          <div data-file-container class="bx--file-container"></div>
+
+
+        <!-- DROPZONE -->
+
+        <div class="dropzone bx--col-xs-12" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+          [class.hovering]="isHovering">
+
+          <h3>Arrastre la foto hasta aquí</h3>
+
+          <div class="file">
+            <div class="bx--form-item">
+              <label for="text-input-3" class="bx--label">También puedes seleccionar un archivo</label>
+              <input class="file-input" type="file" access=".png,.jpg" (change)="startUpload($event.target.files)">
+            </div>
+          </div>
+
+          <span *ngIf="unsupportedFile != ''" class="bx--tag bx--tag--dedicated">{{unsupportedFile}}</span>
+
         </div>
+
+        <div class="bx--col-xs-12" *ngIf="percentage | async as pct">
+
+          <progress class="progress is-info" [value]="pct" max="100">
+          </progress>
+
+          {{ pct | number }}%
+
+        </div>
+
+
+        <div *ngIf="snapshot | async as snap">
+          {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+
+          <div *ngIf="downloadURL | async as url">
+            <h3>Foto subida</h3>
+            <img [src]="url"><br>
+            <a [href]="url" target="_blank" rel="noopener">Descargar</a>
+          </div>
+
+          <button (click)="task.pause()" class="bx--btn bx--btn--secondary bx--btn--sm"  [disabled]="!isActive(snap)">Pausar</button>
+          <button (click)="task.cancel()" class="bx--btn bx--btn--danger bx--btn--sm" aria-label="danger" aria-label="danger" [disabled]="!isActive(snap)">Cancelar</button>
+          <button (click)="task.resume()" class="bx--btn bx--btn--tertiary bx--btn--sm" [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+
+        </div>
+
+        <!-- END DROP ZONE -->
 
         <div class="bx--form-item">
           <label for="text-input-3" class="bx--label">Subir URL</label>
@@ -21,8 +61,9 @@
         <button (click)="getUrl(imgUrl)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
       </div>
     </div>
+
     <div class="bx--col-xs-12 bx--col-md-6">
-        <pre>{{ datos | json }}</pre>
+      <pre>{{ datos | json }}</pre>
     </div>
   </div>
 </div>

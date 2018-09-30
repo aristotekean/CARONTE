@@ -7,7 +7,10 @@ import { map, tap } from 'rxjs/operators';
 })
 export class FaceApiService {
 
-  private url = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=age,gender,smile,glasses,emotion';
+  params = 'age,gender,headPose,smile,facialHair,glasses,emotion,' +
+  'hair,makeup,occlusion,accessories,blur,exposure,noise';
+
+  private url = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=' + this.params;
 
   constructor( private http: Http ) { }
 

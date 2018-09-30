@@ -21,6 +21,7 @@ import { CrudService } from './services/crud.service';
 <<<<<<< refs/remotes/origin/master
 =======
 import { FaceApiService } from './services/face-api.service';
+import { UploadsService } from './services/uploads.service';
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -37,9 +38,7 @@ import { RegisterComponent } from './components/register/register.component';
 =======
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
-import { CardComponent } from './components/card/card.component';
 
->>>>>>> Drop zone
 
 @NgModule({
   declarations: [
@@ -55,8 +54,7 @@ import { CardComponent } from './components/card/card.component';
     RegisterComponent,
     FileUploadComponent,
     DropZoneDirective,
-    FileSizePipe,
-    CardComponent
+    FileSizePipe
   ],
   imports: [
     BrowserModule,
@@ -72,7 +70,8 @@ import { CardComponent } from './components/card/card.component';
   ],
   providers: [
     CrudService,
-    FaceApiService
+    FaceApiService,
+    UploadsService
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

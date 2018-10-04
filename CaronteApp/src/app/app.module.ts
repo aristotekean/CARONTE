@@ -16,7 +16,6 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 // Services
 import { CrudService } from './services/crud.service';
 import { FaceApiService } from './services/face-api.service';
-import { UploadsService } from './services/uploads.service';
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -31,6 +30,7 @@ import { SearchComponent } from './components/search/search.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     RegisterComponent,
     FileUploadComponent,
     DropZoneDirective,
-    FileSizePipe
+    FileSizePipe,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +59,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
   ],
   providers: [
     CrudService,
-    FaceApiService,
-    UploadsService
+    FaceApiService
   ],
   bootstrap: [AppComponent]
 })

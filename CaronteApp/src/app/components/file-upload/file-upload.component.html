@@ -40,30 +40,34 @@
         <div *ngIf="snapshot | async as snap">
           {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
 
-          <div *ngIf="downloadURL | async as url">
-            <h3>Foto subida</h3>
-            <img [src]="url"><br>
-            <a [href]="url" target="_blank" rel="noopener">Descargar</a>
-          </div>
-
-          <button (click)="task.pause()" class="bx--btn bx--btn--secondary bx--btn--sm"  [disabled]="!isActive(snap)">Pausar</button>
-          <button (click)="task.cancel()" class="bx--btn bx--btn--danger bx--btn--sm" aria-label="danger" aria-label="danger" [disabled]="!isActive(snap)">Cancelar</button>
+          <button (click)="task.pause()" class="bx--btn bx--btn--secondary bx--btn--sm" [disabled]="!isActive(snap)">Pausar</button>
+          <button (click)="task.cancel()" class="bx--btn bx--btn--danger bx--btn--sm" aria-label="danger" aria-label="danger"
+            [disabled]="!isActive(snap)">Cancelar</button>
           <button (click)="task.resume()" class="bx--btn bx--btn--tertiary bx--btn--sm" [disabled]="!(snap?.state === 'paused')">Reanudar</button>
 
         </div>
+      </div>
 
-        <!-- END DROP ZONE -->
+      <div *ngIf="downloadURL | async as url" class="bx--form-item">
+        <button (click)="sendUrl(url)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
+      </div>
 
+      <div *ngIf="downloadURL == undefined">
         <div class="bx--form-item">
           <label for="text-input-3" class="bx--label">Subir URL</label>
           <input [(ngModel)]="imgUrl" id="text-input-3" type="text" class="bx--text-input" placeholder="https://www.dominio.com/mi-foto.jpg">
         </div>
-        <button (click)="getUrl(imgUrl)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
+        <button (click)="sendUrl(imgUrl)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
       </div>
+
     </div>
 
     <div class="bx--col-xs-12 bx--col-md-6">
-      <pre>{{ datos | json }}</pre>
+      <div *ngIf="dataApi != undefined">
+        <!-- <app-card></app-card> -->
+        <app-card [dataApi]="dataApi"></app-card>
+      </div>
     </div>
+
   </div>
 </div>

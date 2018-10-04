@@ -1,0 +1,48 @@
+<div class="card-body my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="width: 360px; overflow: hidden; border-radius: 1px;">
+    <img src="{{ dataApi.imgUrl }}" class="d-block w-full">
+
+    <div class="px-2 py-2">
+      <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+        Características detectadas
+      </p>
+
+      <h1>Faceid</h1>
+      <p>{{ dataApi.dataApi[0].faceId }}</p>
+
+      <p><strong>Género: </strong>{{ dataApi.dataApi[0].faceAttributes.gender }}</p>
+      <p><strong>Edad: </strong>{{ dataApi.dataApi[0].faceAttributes.age }}</p>
+      <p><strong>Sonrisa: </strong>{{ dataApi.dataApi[0].faceAttributes.smile }}</p>
+      <p><strong>Gafas: </strong>{{ dataApi.dataApi[0].faceAttributes.glasses }}</p>
+
+      <hr>
+
+      <h1>Emociones</h1>
+      <ul>
+        <li>
+          <p><strong>Enfado: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.anger }}</p>
+        </li>
+        <li>
+          <p><strong>Desprecio: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.contempt }}</p>
+        </li>
+        <li>
+          <p><strong>Asco: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.disgust }}</p>
+        </li>
+        <li>
+          <p><strong>Miedo: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.fear }}</p>
+        </li>
+        <li>
+          <p><strong>Felicidad: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.happiness }}</p>
+        </li>
+        <li>
+          <p><strong>Neutral: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.neutral }}</p>
+        </li>
+        <li>
+          <p><strong>Tristeza: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.sadness }}</p>
+        </li>
+        <li>
+          <p><strong>Sorpresa: </strong>{{ dataApi.dataApi[0].faceAttributes.emotion.surprise }}</p>
+        </li>
+      </ul>
+    </div>
+
+</div>

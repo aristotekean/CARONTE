@@ -21,8 +21,6 @@ import { CrudService } from './services/crud.service';
 <<<<<<< refs/remotes/origin/master
 =======
 import { FaceApiService } from './services/face-api.service';
-import { UploadsService } from './services/uploads.service';
->>>>>>> Drop zone
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -39,6 +37,7 @@ import { RegisterComponent } from './components/register/register.component';
 =======
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { CardComponent } from './components/card/card.component';
 
 >>>>>>> Drop zone
 
@@ -56,8 +55,8 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     RegisterComponent,
     FileUploadComponent,
     DropZoneDirective,
-    FileSizePipe
->>>>>>> Drop zone
+    FileSizePipe,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +72,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
   ],
   providers: [
     CrudService,
-    FaceApiService,
-    UploadsService
->>>>>>> Drop zone
+    FaceApiService
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

@@ -7,9 +7,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 })
 export class CrudService {
 
-  constructor( private afs: AngularFirestore ) {
-    console.log('Service CRUD On');
-   }
+  constructor( private afs: AngularFirestore ) {}
 
    // Crea un nuevo paciente
   public createUser(data: {

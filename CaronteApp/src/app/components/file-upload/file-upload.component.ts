@@ -25,7 +25,7 @@ export class FileUploadComponent implements OnInit {
   snapshot: Observable<any>;
 
   // Dowload URL
-  downloadURL: Observable<string>;
+  public downloadURL: Observable<string>;
 
   // State for dropzone CSS toggling
   isHovering: boolean;
@@ -33,16 +33,19 @@ export class FileUploadComponent implements OnInit {
   // unsupported file
   unsupportedFile = '';
 
-  constructor( private data: FaceApiService, private storage: AngularFireStorage, private db: AngularFirestore  ) {
-    this.imgUrl = '';
-  }
+  constructor( private data: FaceApiService, private storage: AngularFireStorage,
+    private db: AngularFirestore ) {}
 
   // Obtener URL
-  getUrl(imgUrl) {
-    this.data.getApiData(imgUrl).subscribe( data => {
-      this.datos = data;
-    });
-  }
+  sendUrl(imgUrl) {
+
+      this.data.getApiData(imgUrl).subscribe( data => {
+        this.dataApi = {
+          'imgUrl': imgUrl,
+          'dataApi': data
+        };
+      });
+    }
 
   toggleHover(event: boolean) {
     this.isHovering = event;
@@ -63,7 +66,7 @@ export class FileUploadComponent implements OnInit {
     const path = `photos/${new Date().getTime()}_${file.name}`;
 
     // Totally optional metadata
-    const customMetadata = { Caronte: 'Hecho con amor' };
+    const customMetadata = { Caronte: 'De Colombia con amor' };
 
     // The main task
     this.task = this.storage.upload(path, file, { customMetadata });
@@ -73,8 +76,7 @@ export class FileUploadComponent implements OnInit {
     this.snapshot = this.task.snapshotChanges();
 
     // The file's download URL
-    this.snapshot.pipe(finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL()),
-    tap(data => console.log(data))).subscribe();
+    this.snapshot.pipe(finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL()) ).subscribe();
 
     // AFS
     this.snapshot = this.task.snapshotChanges().pipe(
@@ -86,15 +88,12 @@ export class FileUploadComponent implements OnInit {
         }
       })
     );
-
   }
 
   // Determines if the upload task is active
   isActive(snapshot) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes;
   }
-
-
 
   ngOnInit() {}
 

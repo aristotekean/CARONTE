@@ -36,7 +36,6 @@ import { CardComponent } from './components/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    
     HomeComponent,
     NavbarComponent,
     FooterComponent,
@@ -54,7 +53,7 @@ import { CardComponent } from './components/card/card.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
-    AngularFireStorageModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [

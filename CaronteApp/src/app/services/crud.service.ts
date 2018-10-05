@@ -11,10 +11,24 @@ export class CrudService {
 
    // Crea un nuevo paciente
   public createUser(data: {
-    nombre: string,
-    documento: string,
-    ciudad: string,
-    url: string}) {
+    id: string,
+    url: string,
+    InfoDesaparecido: {
+      nombre: string,
+      apellido: string,
+      edad: string,
+      direccion: string},
+    InfoContacto: {
+        nombre: string,
+        apellido: string,
+        ciudad: string,
+        direccion: string,
+        pais: string,
+        telefono: string,
+        provincia: string,
+        email: string,
+        codigozip: string},
+  }) {
     return this.afs.collection('users').add(data);
   }
 

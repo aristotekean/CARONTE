@@ -31,7 +31,6 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 @NgModule({
   declarations: [
     AppComponent,
-    
     HomeComponent,
     NavbarComponent,
     FooterComponent,
@@ -46,6 +45,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [

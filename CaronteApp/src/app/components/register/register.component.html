@@ -2,200 +2,219 @@
   <h1 class="brand">CARONTE</h1>
 </div>
 
+<form [formGroup]="crearFormGroup">
+  <div class="bx--grid top">
+    <div class="bx--row">
+      <div class="bx--col-xs-6">
+        <h1> Informacion persona desaparecida</h1>
 
-<div class="bx--grid top">
-  <div class="bx--row">
-    <div class="bx--col-xs-6">
-      <h1> Informacion persona desaparecida</h1>
+
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+
+            <label for="text-input-3" class="bx--label">Nombres </label>
 
 
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-          <label for="text-input-3" class="bx--label">Nombres</label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Nombres de desaparecido">
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Nombres de desaparecido"
+              formControlName="nombreDesaparecido" required />
+
+
+
+          </div>
         </div>
-      </div>
 
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-          <label for="text-input-3" class="bx--label">Apellidos</label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Apellidos de desaparecido">
+
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+            <label for="text-input-3" class="bx--label">Apellidos</label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Apellidos de desaparecido"
+              formControlName="apellidoDesaparecido" required>
+          </div>
         </div>
-      </div>
 
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-          <label for="text-input-3" class="bx--label">Edad</label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Edad del desaparecido">
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+            <label for="text-input-3" class="bx--label">Edad</label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Edad del desaparecido"
+              formControlName="edadDesaparecido" required>
 
 
+          </div>
         </div>
-      </div>
 
-      <div class="bx--form-item item-form">
+        <div class="bx--form-item item-form">
 
-        <div class="bx--col-xs-12">
-
-
-
-          <label for="text-input-3" class="bx--label">Dirección pérdida </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Donde fue visto/a por ultima vez">
+          <div class="bx--col-xs-12">
 
 
 
+            <label for="text-input-3" class="bx--label">Dirección pérdida </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Donde fue visto/a por ultima vez"
+              formControlName="direccionDesaparicion" required>
+
+
+
+          </div>
         </div>
-      </div>
 
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-          <div class="bx--form-item">
-            <strong class="bx--label">Subir Foto</strong>
-            <p class="bx--label-description">Solo archivos con formato .jpg y .png 500kb max.</p>
-            <div class="bx--file" data-file>
-              <label for="your-file-importer-id-here" class="bx--file-btn bx--btn bx--btn--secondary" role="button"
-                tabindex="0">Subir archivo</label>
-              <input type="file" class="bx--file-input" id="your-file-importer-id-here" data-file-uploader data-target="[data-file-container]"
-                multiple />
-              <div data-file-container class="bx--file-container"></div>
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+            <div class="bx--form-item">
+              <strong class="bx--label">Subir Foto</strong>
+              <p class="bx--label-description">Solo archivos con formato .jpg y .png 500kb max.</p>
+              <div class="bx--file" data-file>
+                <label for="your-file-importer-id-here" class="bx--file-btn bx--btn bx--btn--secondary" role="button"
+                  tabindex="0">Subir archivo</label>
+                <input type="file" class="bx--file-input" id="your-file-importer-id-here" data-file-uploader
+                  data-target="[data-file-container]" multiple />
+                <div data-file-container class="bx--file-container"></div>
+              </div>
             </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="bx--col-xs-6">
+        <h1>Información de contacto</h1>
+
+        <div class="bx--form-item item-form">
+
+          <div class="bx--col-xs-12">
+
+            <label for="text-input-3" class="bx--label">Nombres </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Nombre del registrante"
+              formControlName="nombreContacto" required>
+          </div>
+        </div>
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+
+            <label for="text-input-3" class="bx--label">Apellidos </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Apellido del registrante"
+              formControlName="apellidoContacto" required>
+
+          </div>
+
+        </div>
+
+
+        <div class="bx--form-item item-form">
+
+          <div class="bx--col-xs-12">
+
+            <label for="text-input-3 " class="bx--label">Ciudad </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Ciudad del registrante"
+              formControlName="ciudadContacto" required>
+          </div>
+        </div>
+
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
+
+            <label for="text-input-3" class="bx--label">Dirección </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Dirección registrante"
+              formControlName="direccionContacto" required>
+
           </div>
 
 
         </div>
-      </div>
+
+        <div class="bx--form-item item-form">
+
+          <div class="bx--col-xs-12">
 
 
-    </div>
 
-    <div class="bx--col-xs-6">
-      <h1>Información de contacto</h1>
+            <div class="bx--select bx--select--light">
+              <label for="select-id" class="bx--label">Estado/Provincia</label>
+              <select id="select-id" class="bx--select-input">
+                <option class="bx--select-option" value="" disabled selected hidden>Escoja su estado o provincia</option>
 
-      <div class="bx--form-item item-form">
 
-        <div class="bx--col-xs-12">
+                <option class="bx--select-option" value="Argentina">Argentina </option>
+                <option class="bx--select-option" value="Bolivia">Bolivia </option>
+                <option class="bx--select-option" value="Brasil">Brasil </option>
+                <option class="bx--select-option" value="Chile">Chile </option>
+                <option class="bx--select-option" value="Colombia"> Colombia </option>
+                <option class="bx--select-option" value="Costa Rica">Costa Rica </option>
+                <option class="bx--select-option" value="Cuba">Cuba</option>
+                <option class="bx--select-option" value="Ecuador">Ecuador </option>
+                <option class="bx--select-option" value="El Salvador">El Salvador </option>
+                <option class="bx--select-option" value="Guatemala">Guatemala </option>
+                <option class="bx--select-option" value="Honduras">Honduras</option>
+                <option class="bx--select-option" value="México">México </option>
+                <option class="bx--select-option" value="Nicaragua">Nicaragua</option>
+                <option class="bx--select-option" value="Panamá">Panamá </option>
+                <option class="bx--select-option" value="Paraguay">Paraguay</option>
+                <option class="bx--select-option" value="Puerto Rico">Puerto Rico </option>
+                <option class="bx--select-option" value="Perú">Perú </option>
+                <option class="bx--select-option" value="República Domminicana">República Domminicana </option>
+                <option class="bx--select-option" value="Uruguay">Uruguay </option>
+                <option class="bx--select-option" value="Venezuela">Venezuela </option>
 
-          <label for="text-input-3" class="bx--label">Nombres </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Nombre del registrante">
+
+              </select>
+              <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
+                <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
+              </svg>
+            </div>
+
+
+
+          </div>
         </div>
-      </div>
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-
-          <label for="text-input-3" class="bx--label">Apellidos </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Apellido del registrante">
-
-        </div>
-
-      </div>
 
 
-      <div class="bx--form-item item-form">
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-12">
 
-        <div class="bx--col-xs-12">
+            <label for="text-input-3" class="bx--label">Código Zip </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Escriba su código ZIP"
+              formControlName="zipContacto" required />
 
-          <label for="text-input-3 " class="bx--label">Ciudad </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Ciudad del registrante">
-        </div>
-      </div>
-
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-
-          <label for="text-input-3" class="bx--label">Dirección </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Dirección registrante">
-
-        </div>
-
-
-      </div>
-
-      <div class="bx--form-item item-form">
-
-        <div class="bx--col-xs-12">
-
-
-
-          <div class="bx--select bx--select--light">
-            <label for="select-id" class="bx--label">Estado/Provincia</label>
-            <select id="select-id" class="bx--select-input">
-              <option class="bx--select-option" value="" disabled selected hidden>Escoja su estado o provincia</option>
-
-
-              <option class="bx--select-option" value="Argentina">Argentina </option>
-              <option class="bx--select-option" value="Bolivia">Bolivia </option>
-              <option class="bx--select-option" value="Brasil">Brasil </option>
-              <option class="bx--select-option" value="Chile">Chile </option>
-              <option class="bx--select-option" value="Colombia"> Colombia </option>
-              <option class="bx--select-option" value="Costa Rica">Costa Rica </option>
-              <option class="bx--select-option" value="Cuba">Cuba</option>
-              <option class="bx--select-option" value="Ecuador">Ecuador </option>
-              <option class="bx--select-option" value="El Salvador">El Salvador </option>
-              <option class="bx--select-option" value="Guatemala">Guatemala </option>
-              <option class="bx--select-option" value="Honduras">Honduras</option>
-              <option class="bx--select-option" value="México">México </option>
-              <option class="bx--select-option" value="Nicaragua">Nicaragua</option>
-              <option class="bx--select-option" value="Panamá">Panamá </option>
-              <option class="bx--select-option" value="Paraguay">Paraguay</option>
-              <option class="bx--select-option" value="Puerto Rico">Puerto Rico </option>
-              <option class="bx--select-option" value="Perú">Perú </option>
-              <option class="bx--select-option" value="República Domminicana">República Domminicana </option>
-              <option class="bx--select-option" value="Uruguay">Uruguay </option>
-              <option class="bx--select-option" value="Venezuela">Venezuela </option>
-
-
-            </select>
-            <svg class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5">
-              <path d="M0 0l5 4.998L10 0z" fill-rule="evenodd" />
-            </svg>
           </div>
 
 
-
-        </div>
-      </div>
-
-
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-12">
-
-          <label for="text-input-3" class="bx--label">Código Zip </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Escriba su código ZIP">
-
         </div>
 
 
-      </div>
+        <div class="bx--form-item item-form">
 
+          <div class="bx--col-xs-12">
 
-      <div class="bx--form-item item-form">
-
-        <div class="bx--col-xs-12">
-
-          <label for="text-input-3" class="bx--label">Número telefónico </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Optional placeholder text">
+            <label for="text-input-3" class="bx--label">Número telefónico </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Optional placeholder text"
+              formControlName="numeroContacto" required>
+          </div>
         </div>
-      </div>
 
-      <div class="bx--form-item item-form">
-        <div class="bx--col-xs-3">
+        <div class="bx--form-item item-form">
+          <div class="bx--col-xs-3">
 
-          <label for="text-input-3" class="bx--label">Email (Optional) </label>
-          <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Optional placeholder text">
+            <label for="text-input-3" class="bx--label">Email (Optional) </label>
+            <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Optional placeholder text"
+              formControlName="emailContacto" required>
+
+          </div>
+
 
         </div>
 
 
+
       </div>
+    </div>
 
-
-
+    <div class="bx--row top">
+      <div class="bx--offset-xs-5 bx--col-xs-3">
+        <button class="bx--btn bx--btn--secondary" type="button">Limpiar</button>
+        <button (click)="dataForm()" class="bx--btn bx--btn--primary" type="button" enabled>Enviar</button>
+      </div>
     </div>
   </div>
-
-  <div class="bx--row top">
-    <div class="bx--offset-xs-5 bx--col-xs-3">
-      <button class="bx--btn bx--btn--secondary" type="button">Limpiar</button>
-      <button class="bx--btn bx--btn--primary" type="button" enabled>Enviar</button>
-    </div>
-  </div>
-</div>
+</form>

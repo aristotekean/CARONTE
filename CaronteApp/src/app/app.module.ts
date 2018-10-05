@@ -43,7 +43,6 @@ import { CardComponent } from './components/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    
     HomeComponent,
     NavbarComponent,
     FooterComponent,
@@ -66,7 +65,7 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule
 =======
     AppRoutingModule,
-    AngularFireStorageModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [

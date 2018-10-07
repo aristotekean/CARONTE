@@ -6,20 +6,13 @@
   <div class="bx--grid top">
     <div class="bx--row">
       <div class="bx--col-xs-6">
-        <h1> Informacion persona desaparecida</h1>
-
+        <h1> Información persona desaparecida</h1>
 
         <div class="bx--form-item item-form">
           <div class="bx--col-xs-12">
-
             <label for="text-input-3" class="bx--label">Nombres </label>
-
-
             <input id="text-input-3" type="text" class="bx--text-input bx--text-input--light" placeholder="Nombres de desaparecido"
-              formControlName="nombreDesaparecido" required />
-
-
-
+            formControlName="apellidoDesaparecido"  required >
           </div>
         </div>
 
@@ -131,9 +124,9 @@
 
 
             <div class="bx--select bx--select--light">
-              <label for="select-id" class="bx--label">Estado/Provincia</label>
+              <label for="select-id" class="bx--label">País</label>
               <select id="select-id" class="bx--select-input">
-                <option class="bx--select-option" value="" disabled selected hidden>Escoja su estado o provincia</option>
+                <option class="bx--select-option" value="" disabled selected hidden formControlName="paisContacto">Escoja su país</option>
 
 
                 <option class="bx--select-option" value="Argentina">Argentina </option>
@@ -212,8 +205,8 @@
 
     <div class="bx--row top">
       <div class="bx--offset-xs-5 bx--col-xs-3">
-        <button class="bx--btn bx--btn--secondary" type="button">Limpiar</button>
-        <button (click)="dataForm()" class="bx--btn bx--btn--primary" type="button" enabled>Enviar</button>
+        <button class="bx--btn bx--btn--secondary" type="reset">Limpiar</button>
+        <button (click)="dataForm()" class="bx--btn bx--btn--primary" type="submit" enabled>Enviar</button>
       </div>
     </div>
   </div>

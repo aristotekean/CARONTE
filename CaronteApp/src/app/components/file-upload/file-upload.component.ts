@@ -16,7 +16,7 @@ export class FileUploadComponent implements OnInit {
 
   public dataApi: any;
 
-  // Tarea principal
+  // Main Task
   task: AngularFireUploadTask;
 
   // Progress monitoring
@@ -36,7 +36,7 @@ export class FileUploadComponent implements OnInit {
   constructor( private data: FaceApiService, private storage: AngularFireStorage,
     private db: AngularFirestore ) {}
 
-  // Obtener URL
+  // Get URL for API
   sendUrl(imgUrl) {
 
       this.data.getApiData(imgUrl).subscribe( data => {
@@ -75,8 +75,15 @@ export class FileUploadComponent implements OnInit {
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges();
 
-    // The file's download URL
-    this.snapshot.pipe(finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL()) ).subscribe();
+    // Download URL file
+    this.snapshot.pipe(finalize(() => {
+      this.downloadURL = this.storage.ref(path).getDownloadURL();
+      this.downloadURL.subscribe( url => {
+        if (url) {
+          this.sendUrl(url);
+        }
+      } );
+    }) ).subscribe();
 
     // AFS
     this.snapshot = this.task.snapshotChanges().pipe(

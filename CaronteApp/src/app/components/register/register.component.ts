@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
+    // Información desaparecido
     this.crearFormGroup = this._formBuilder.group({
       nombreDesaparecido: ['', Validators.required]
     });
@@ -74,6 +75,9 @@ export class RegisterComponent implements OnInit {
     });
     this.crearFormGroup = this._formBuilder.group({
       numeroContacto: ['', Validators.required]
+    });
+    this.crearFormGroup = this._formBuilder.group({
+      paisContacto: ['', Validators.required]
     });
     this.crearFormGroup = this._formBuilder.group({
       emailContacto: ['', Validators.required]

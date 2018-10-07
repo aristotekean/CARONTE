@@ -11,8 +11,8 @@ export class CrudService {
 
    // Crea un nuevo paciente
   public createUser(data: {
-    id: string,
-    url: string,
+    id: 'z',
+    url: 'abs',
     InfoDesaparecido: {
       nombre: string,
       apellido: string,
@@ -25,7 +25,7 @@ export class CrudService {
         direccion: string,
         pais: string,
         telefono: string,
-        provincia: string,
+       //  provincia: string,
         email: string,
         codigozip: string},
   }) {

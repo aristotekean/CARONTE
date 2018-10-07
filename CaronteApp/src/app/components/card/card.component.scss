@@ -1,9 +1,10 @@
 .card-body{
   max-height: 900px;
+  max-width: 350px;
 }
 
 .height {
-  max-height: 300px;
+  max-height: 350px;
 }
 
 p, strong {
@@ -14,6 +15,11 @@ p, strong {
 strong {
   font-size: 18px;
   font-weight: bold;
+}
+
+li {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .text-black {

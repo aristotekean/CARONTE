@@ -48,10 +48,6 @@
         </div>
       </div>
 
-      <div *ngIf="downloadURL | async as url" class="bx--form-item">
-        <button (click)="sendUrl(url)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
-      </div>
-
       <div *ngIf="downloadURL == undefined">
         <div class="bx--form-item">
           <label for="text-input-3" class="bx--label">Subir URL</label>
@@ -64,7 +60,6 @@
 
     <div class="bx--col-xs-12 bx--col-md-6">
       <div *ngIf="dataApi != undefined">
-        <!-- <app-card></app-card> -->
         <app-card [dataApi]="dataApi"></app-card>
       </div>
     </div>

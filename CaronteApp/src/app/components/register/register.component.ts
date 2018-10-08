@@ -11,79 +11,63 @@ export class RegisterComponent implements OnInit {
 
   crearFormGroup: FormGroup;
 
+  paises: string[] = ['Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Costa Rica', 'Cuba', 'Ecuador',
+    'El Salvador', 'Guatemala', 'Honduras', 'México', 'Nicaragua', 'Panamá', 'Paraguay', 'Puerto Rico', 'Perú',
+    'Uruguay', 'Venezuela'];
+
   constructor(private _formBuilder: FormBuilder, public _crudService: CrudService,  ) { }
 
 
   dataForm() {
 
     const DATA = {
-        id: this.crearFormGroup.value.id,
-        url: this.crearFormGroup.value.url,
+        face_id: 'asdasd-fgf5-df55',
+        url_foto: 'this.crearFormGroup.value.url',
         InfoDesaparecido: {
-          nombre: this.crearFormGroup.value.nombre,
-          apellido: this.crearFormGroup.value.apellido,
-          edad: this.crearFormGroup.value.edad,
-          direccion: this.crearFormGroup.value.direccion},
+          nombre: this.crearFormGroup.value.nombreDesaparecido,
+          apellido: this.crearFormGroup.value.apellidoDesaparecido,
+          edad: this.crearFormGroup.value.edadDesaparecido,
+          direccion: this.crearFormGroup.value.ciudadDesaparicion,
+          pais: this.crearFormGroup.value.paisDesaparicion},
         InfoContacto: {
-            nombre: this.crearFormGroup.value.nombre,
-            apellido: this.crearFormGroup.value.apellido,
-            ciudad: this.crearFormGroup.value.ciudad,
-            direccion: this.crearFormGroup.value.direccion,
-            pais: this.crearFormGroup.value.pais,
-            telefono: this.crearFormGroup.value.telefono,
-            provincia: this.crearFormGroup.value.provincia,
-            email: this.crearFormGroup.value.email,
-            codigozip: this.crearFormGroup.value.codigozip}
+            nombre: this.crearFormGroup.value.nombreContacto,
+            apellido: this.crearFormGroup.value.apellidoContacto,
+            ciudad: this.crearFormGroup.value.direccionContacto,
+            direccion: this.crearFormGroup.value.ciudadContacto,
+            pais: this.crearFormGroup.value.paisContacto,
+            codigo_postal: this.crearFormGroup.value.zipContacto,
+            telefono: this.crearFormGroup.value.numeroContacto,
+            email: this.crearFormGroup.value.emailContacto}
     };
+
+    console.log(DATA);
 
     this._crudService.createUser(DATA).then(() => {
       console.log('Guardado con exito'); },
       (error) => {
-        console.log('error');  });
-
+        console.log(error);  });
   }
 
 
   ngOnInit() {
 
-    // Información desaparecido
     this.crearFormGroup = this._formBuilder.group({
-      nombreDesaparecido: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      apellidoDesaparecido: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      edadDesaparecido: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      direccionDesaparicion: ['', Validators.required]
-    });
+      // Información desaparecido
+      nombreDesaparecido: ['', Validators.required],
+      apellidoDesaparecido: ['', Validators.required],
+      edadDesaparecido: ['', Validators.required],
+      ciudadDesaparicion: ['', Validators.required],
+      paisDesaparicion: ['', Validators.required],
 
-    // Información de contacto
-    this.crearFormGroup = this._formBuilder.group({
-      nombreContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      apellidoContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      ciudadContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      direccionContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      numeroContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      paisContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      emailContacto: ['', Validators.required]
-    });
-    this.crearFormGroup = this._formBuilder.group({
-      zipContacto: ['', Validators.required]
+      // Información de contacto
+      nombreContacto: ['', Validators.required],
+      apellidoContacto: ['', Validators.required],
+      direccionContacto: ['', Validators.required],
+      ciudadContacto: ['', Validators.required],
+      paisContacto: ['', Validators.required],
+      zipContacto: ['', Validators.required],
+      numeroContacto: ['', Validators.required],
+      emailContacto: ['', Validators]
     });
   }
 

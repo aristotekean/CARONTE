@@ -64,6 +64,7 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule
 =======
     AppRoutingModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     HttpModule
   ],

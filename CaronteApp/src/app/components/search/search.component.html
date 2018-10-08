@@ -22,8 +22,8 @@
   </div>
 
   <div class="bx--row">
-    <div class="bx--col-xs-10" *ngFor="let users of users">
-      <h1>Test: {{ users.data.test }}</h1>
+    <div class="bx--col-xs-10" *ngFor="let user of users">
+      <pre>{{ user.data | json}}</pre>
     </div>
   </div>
 

@@ -52,6 +52,7 @@ import { CardComponent } from './components/card/card.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     HttpModule
   ],

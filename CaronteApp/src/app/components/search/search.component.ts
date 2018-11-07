@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud.service';
 import { FaceListService } from '../../services/face-list.service';
 import { FaceAddService } from '../../services/face-add.service';
+import { FindSimilarService } from '../../services/find-similar.service';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   constructor( public _crudService: CrudService, public _faceListService: FaceListService,
-    public _faceAddService: FaceAddService ) { }
+    public _faceAddService: FaceAddService,  public _findSimilarService: FindSimilarService  ) { }
 
   put() {
     this._faceListService.createFaceList();
@@ -23,7 +24,10 @@ export class SearchComponent implements OnInit {
     this._faceAddService.httpPost();
   }
 
-  ngOnInit() {
+  findSimilar() {
+    this._findSimilarService.httpPost();
   }
+
+  ngOnInit() {}
 
 }

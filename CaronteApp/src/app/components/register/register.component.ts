@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {CrudService} from '../../services/crud.service';
+import { FaceAddService } from 'src/app/services/face-add.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
     'El Salvador', 'Guatemala', 'Honduras', 'México', 'Nicaragua', 'Panamá', 'Paraguay', 'Puerto Rico', 'Perú',
     'Uruguay', 'Venezuela'];
 
-  constructor(private _formBuilder: FormBuilder, public _crudService: CrudService,  ) { }
+  constructor(private _formBuilder: FormBuilder, public _crudService: CrudService,
+    public _faceAddService: FaceAddService,  ) { }
 
   dataForm() {
 
@@ -23,7 +25,8 @@ export class RegisterComponent implements OnInit {
 
     console.error('Formulario', dataShared);
 
-    const DATA = {
+      const DATA = {
+        persistedFaceId: '',
         url_foto: dataShared.urlImg,
         info_desaparecido: {
           nombre: this.crearFormGroup.value.nombreDesaparecido,
@@ -40,15 +43,13 @@ export class RegisterComponent implements OnInit {
             codigo_postal: this.crearFormGroup.value.zipContacto,
             telefono: this.crearFormGroup.value.numeroContacto,
             email: this.crearFormGroup.value.emailContacto},
-        data_api: dataShared.dataApi
-    };
+            data_api: dataShared.dataApi
+      };
 
     console.log(DATA);
 
-    this._crudService.createUser(DATA).then(() => {
-      console.log('Guardado con exito'); },
-      (error) => {
-        console.log(error);  });
+    this._faceAddService.httpPost( DATA );
+
   }
 
 

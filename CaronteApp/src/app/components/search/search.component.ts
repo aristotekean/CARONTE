@@ -14,15 +14,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   constructor( public _crudService: CrudService, public _faceListService: FaceListService,
-    public _faceAddService: FaceAddService,  public _findSimilarService: FindSimilarService  ) { }
-
-  put() {
-    this._faceListService.createFaceList();
-  }
-
-  addFace() {
-    this._faceAddService.httpPost();
-  }
+      public _findSimilarService: FindSimilarService  ) { }
 
   findSimilar() {
     this._findSimilarService.httpPost();

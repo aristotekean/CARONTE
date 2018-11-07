@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 <<<<<<< refs/remotes/origin/master
 =======
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 >>>>>>> Drop zone
 
@@ -21,6 +22,7 @@ import { CrudService } from './services/crud.service';
 <<<<<<< refs/remotes/origin/master
 =======
 import { FaceApiService } from './services/face-api.service';
+import { FaceListService } from './services/face-list.service';
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -66,11 +68,13 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
+    HttpClientModule,
     HttpModule
   ],
   providers: [
     CrudService,
-    FaceApiService
+    FaceApiService,
+    FaceListService
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

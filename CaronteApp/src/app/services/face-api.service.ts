@@ -16,8 +16,6 @@ export class FaceApiService {
 
   getApiData( imgUrl: String ) {
 
-    console.log(imgUrl);
-
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Ocp-Apim-Subscription-Key': '75d50f59332f4867b2ac1af7d6e85d62'
@@ -27,7 +25,9 @@ export class FaceApiService {
 
     return this.http.post( this.url, { url: imgUrl }, options )
     .pipe( map( data => data.json() ),
-    tap( result => console.log( result ) ) );
+    tap( result => {
+      console.warn( 'Respuesta API', result );
+    }) );
   }
 
 }

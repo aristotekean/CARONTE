@@ -8,25 +8,14 @@ export class CrudService {
 
   constructor( private afs: AngularFirestore ) {}
 
+  dataShared: any;
+
    // Crea un nuevo paciente
   public createUser(data: {
-    face_id: string,
     url_foto: string,
-    InfoDesaparecido: {
-      nombre: string,
-      apellido: string,
-      edad: string,
-      direccion: string,
-      pais: string},
-    InfoContacto: {
-        nombre: string,
-        apellido: string,
-        ciudad: string,
-        direccion: string,
-        pais: string,
-        codigo_postal: string,
-        telefono: string,
-        email: string},
+    info_desaparecido: {},
+    info_contacto: {},
+    data_api: {}
   }) {
     return this.afs.collection('users').add(data);
   }
@@ -53,6 +42,17 @@ export class CrudService {
   // Borrar un paciente
   public deleteUser(documentId: string) {
     return this.afs.collection('users').doc(documentId).delete();
+  }
+
+  public sharedData(imgUrl, data) {
+    this.dataShared = {
+      urlImg: imgUrl,
+      dataApi: data
+    };
+  }
+
+  public getData() {
+    return this.dataShared;
   }
 
 }

@@ -5,9 +5,9 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class FaceAddService {
+export class FindSimilarService {
 
-  private endpoint  = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/facelists/ucc/persistedFaces';
+  private endpoint  = 'https://eastus.api.cognitive.microsoft.com/face/v1.0';
 
   constructor( private _httpClient: HttpClient ) { }
 
@@ -19,8 +19,10 @@ export class FaceAddService {
 
     this._httpClient.post(this.endpoint,
       {
-        'url': 'https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/45558768_516544352148269_3405346583926013952_o.jpg?_nc_cat' +
-        '=103&_nc_ht=scontent.feoh3-1.fna&oh=d5a1de0227e75f16dc36ee4ef9497d6d&oe=5C426296'
+        'faceId': 'c5c24a82-6845-4031-9d5d-978df9175426',
+        'faceListId': 'ucc',
+        'maxNumOfCandidatesReturned': 5,
+        'mode': 'matchPerson'
     }, {headers})
     .subscribe(
         (val) => {

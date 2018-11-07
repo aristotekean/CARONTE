@@ -7,7 +7,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 })
 export class FindSimilarService {
 
-  private endpoint  = 'https://eastus.api.cognitive.microsoft.com/face/v1.0';
+  private endpoint  = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/findsimilars';
 
   constructor( private _httpClient: HttpClient ) { }
 
@@ -19,7 +19,7 @@ export class FindSimilarService {
 
     this._httpClient.post(this.endpoint,
       {
-        'faceId': 'c5c24a82-6845-4031-9d5d-978df9175426',
+        'faceId': '0ea6e233-37ba-4893-8eb7-905368623ce6',
         'faceListId': 'ucc',
         'maxNumOfCandidatesReturned': 5,
         'mode': 'matchPerson'

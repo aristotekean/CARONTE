@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {CrudService} from '../../services/crud.service';
-import { log } from 'util';
 
 @Component({
   selector: 'app-register',

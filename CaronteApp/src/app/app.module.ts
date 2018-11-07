@@ -23,6 +23,7 @@ import { CrudService } from './services/crud.service';
 =======
 import { FaceApiService } from './services/face-api.service';
 import { FaceListService } from './services/face-list.service';
+import { FaceAddService } from './services/face-add.service';
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -74,7 +75,8 @@ import { CardComponent } from './components/card/card.component';
   providers: [
     CrudService,
     FaceApiService,
-    FaceListService
+    FaceListService,
+    FaceAddService
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

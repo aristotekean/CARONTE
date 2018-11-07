@@ -63,19 +63,8 @@
         </div>
 
         <div class="bx--form-item item-form">
-          <div class="bx--col-xs-12">
-            <div class="bx--form-item">
-              <strong class="bx--label">Subir Foto</strong>
-              <p class="bx--label-description">Solo archivos con formato .jpg y .png 500kb max.</p>
-              <div class="bx--file" data-file>
-                <label for="your-file-importer-id-here" class="bx--file-btn bx--btn bx--btn--secondary" role="button"
-                  tabindex="0">Subir archivo</label>
-                <input type="file" class="bx--file-input" id="your-file-importer-id-here" data-file-uploader
-                  data-target="[data-file-container]" multiple />
-                <div data-file-container class="bx--file-container"></div>
-              </div>
-            </div>
-          </div>
+          <strong class="bx--label">Subir fotografía</strong>
+          <app-file-upload></app-file-upload>
         </div>
 
       </div>
@@ -148,8 +137,7 @@
         <div class="bx--form-item item-form">
           <div class="bx--col-xs-3">
             <label for="text-input-3" class="bx--label">Email</label>
-            <input type="text" class="bx--text-input bx--text-input--light" placeholder="Email"
-              formControlName="emailContacto">
+            <input type="text" class="bx--text-input bx--text-input--light" placeholder="Email" formControlName="emailContacto">
           </div>
         </div>
 

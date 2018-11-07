@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Router
@@ -16,6 +17,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 // Services
 import { CrudService } from './services/crud.service';
 import { FaceApiService } from './services/face-api.service';
+import { FaceListService } from './services/face-list.service';
 
 // Directives
 import { DropZoneDirective } from './directives/drop-zone.directive';
@@ -54,11 +56,13 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
+    HttpClientModule,
     HttpModule
   ],
   providers: [
     CrudService,
-    FaceApiService
+    FaceApiService,
+    FaceListService
   ],
   bootstrap: [AppComponent]
 })

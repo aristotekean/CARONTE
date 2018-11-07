@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud.service';
+import { FaceListService } from '../../services/face-list.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,11 @@ export class SearchComponent implements OnInit {
 
   public users = [];
 
-  constructor( public _crudService: CrudService ) { }
+  constructor( public _crudService: CrudService, public _faceListService: FaceListService ) { }
+
+  put() {
+    this._faceListService.createFaceList();
+  }
 
   ngOnInit() {
     this._crudService.getUsers().subscribe( ( usersSnapshot ) => {

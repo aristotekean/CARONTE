@@ -4,6 +4,7 @@ import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'
 import { Observable } from 'rxjs';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { tap, finalize } from 'rxjs/operators';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -34,7 +35,7 @@ export class FileUploadComponent implements OnInit {
   unsupportedFile = '';
 
   constructor( private data: FaceApiService, private storage: AngularFireStorage,
-    private db: AngularFirestore ) {}
+    private db: AngularFirestore, private _crudService: CrudService ) {}
 
   // Get URL for API
   sendUrl(imgUrl) {
@@ -44,6 +45,7 @@ export class FileUploadComponent implements OnInit {
           'imgUrl': imgUrl,
           'dataApi': data
         };
+        this._crudService.sharedData(imgUrl, data);
       });
     }
 

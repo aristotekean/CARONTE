@@ -10,28 +10,19 @@
     </p>
   </div>
 
-  <button class="bx--btn bx--btn--secondary"
-  type="button" (click)="findSimilar()" >Test FindSimilar</button>
-
   <hr>
 
   <div class="bx--row">
     <div class="bx--col-xs-10">
 
       <h1>Subir fotografía</h1>
-      <app-file-upload></app-file-upload>
+      <app-file-upload (valueChange)="displayCounter($event)" ></app-file-upload>
 
     </div>
   </div>
 
-  <!-- <div class="bx--row">
-    <div class="bx--col-xs-10" *ngFor="let user of users">
-      <pre>{{ user.data | json}}</pre>
-    </div>
-  </div> -->
-
 </div>
 
-<app-outcome></app-outcome>
+<app-outcome *ngIf="seeOutcome == true" ></app-outcome>
 
 <app-footer></app-footer>

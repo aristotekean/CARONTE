@@ -11,7 +11,7 @@ export class CrudService {
 
   dataShared: any;
 
-   // Crea un nuevo paciente
+   // Crea un nuevo usuario
   public createUser(data: {
     url_foto: string,
     info_desaparecido: {},
@@ -21,17 +21,17 @@ export class CrudService {
     return this.afs.collection('users').add(data);
   }
 
-  // Obtiene un paciente
+  // Obtiene un usuario
   public getUser(documentId: string) {
     return this.afs.collection('users').doc(documentId).snapshotChanges();
   }
 
-  // Obtiene todos los pacientes
+  // Obtiene todos los usuarios
   public getUsers() {
    return this.afs.collection('users').snapshotChanges();
   }
 
-  // Actualiza un paciente
+  // Actualiza un usuario
   public updateUser(documentId: string, data: {
     nombre?: string,
     documento?: string,
@@ -40,7 +40,7 @@ export class CrudService {
     return this.afs.collection('users').doc(documentId).set(data);
   }
 
-  // Borrar un paciente
+  // Borrar un usuario
   public deleteUser(documentId: string) {
     return this.afs.collection('users').doc(documentId).delete();
   }

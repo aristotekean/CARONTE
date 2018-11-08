@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map, tap } from 'rxjs/operators';
+import { FindSimilarService } from './find-similar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class FaceApiService {
 
   private url = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=' + this.params;
 
-  constructor( private http: Http ) { }
+  constructor( private http: Http, public _findSimilarService: FindSimilarService ) { }
 
   getApiData( imgUrl: String ) {
 
@@ -27,6 +28,7 @@ export class FaceApiService {
     .pipe( map( data => data.json() ),
     tap( result => {
       console.warn( 'Respuesta API', result );
+      this._findSimilarService.httpPost( result[0].faceId );
     }) );
   }
 

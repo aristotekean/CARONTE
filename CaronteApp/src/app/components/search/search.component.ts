@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud.service';
-import { FindSimilarService } from '../../services/find-similar.service';
 
 @Component({
   selector: 'app-search',
@@ -9,14 +8,12 @@ import { FindSimilarService } from '../../services/find-similar.service';
 })
 export class SearchComponent implements OnInit {
 
-  public users = [];
+  seeOutcome = false;
 
-  constructor( public _crudService: CrudService,
-      public _findSimilarService: FindSimilarService  ) { }
-
-  findSimilar() {
-    this._findSimilarService.httpPost();
+  displayCounter(count) {
+    this.seeOutcome = count;
   }
+  constructor( public _crudService: CrudService ) { }
 
   ngOnInit() {}
 

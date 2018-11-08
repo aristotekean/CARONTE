@@ -7,7 +7,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 })
 export class CrudService {
 
-  constructor( private afs: AngularFirestore ) {}
+  constructor( public afs: AngularFirestore ) {}
 
   dataShared: any;
 

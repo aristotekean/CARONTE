@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FaceApiService } from '../../services/face-api.service';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
@@ -37,6 +37,9 @@ export class FileUploadComponent implements OnInit {
   constructor( private data: FaceApiService, private storage: AngularFireStorage,
     private db: AngularFirestore, private _crudService: CrudService ) {}
 
+  @Output() valueChange = new EventEmitter();
+  seeOutcome = false;
+
   // Get URL for API
   sendUrl(imgUrl) {
 
@@ -46,6 +49,10 @@ export class FileUploadComponent implements OnInit {
           'dataApi': data
         };
         this._crudService.sharedData(imgUrl, data);
+
+        this.seeOutcome = true;
+        this.valueChange.emit(this.seeOutcome);
+
       });
     }
 

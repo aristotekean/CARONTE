@@ -11,7 +11,7 @@ export class FindSimilarService {
 
   constructor( private _httpClient: HttpClient ) { }
 
-  httpPost() {
+  httpPost( faceId ) {
 
     const headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
@@ -19,15 +19,22 @@ export class FindSimilarService {
 
     this._httpClient.post(this.endpoint,
       {
-        'faceId': '0ea6e233-37ba-4893-8eb7-905368623ce6',
+        'faceId': faceId,
         'faceListId': 'ucc',
         'maxNumOfCandidatesReturned': 5,
         'mode': 'matchPerson'
     }, {headers})
     .subscribe(
         (val) => {
-            console.log('POST call successful value returned in body',
-                        val);
+            console.log('POST call successful value returned in body', val);
+
+            for (const key in val) {
+              if (val.hasOwnProperty(key)) {
+                const element = val[key];
+                console.log(element.persistedFaceId);
+                console.log(element.confidence);
+              }
+            }
         },
         response => {
             console.log('POST call in error', response);

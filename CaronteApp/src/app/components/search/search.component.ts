@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud.service';
-import { FaceListService } from '../../services/face-list.service';
-import { FaceAddService } from '../../services/face-add.service';
 import { FindSimilarService } from '../../services/find-similar.service';
 
 @Component({
@@ -13,7 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor() { }
 
-  constructor( public _crudService: CrudService, public _faceListService: FaceListService,
+  constructor( public _crudService: CrudService,
       public _findSimilarService: FindSimilarService  ) { }
 
   findSimilar() {

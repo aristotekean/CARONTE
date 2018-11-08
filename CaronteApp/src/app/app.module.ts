@@ -40,7 +40,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { CardComponent } from './components/card/card.component';
-
+import { OutcomeComponent } from './components/outcome/outcome.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,8 @@ import { CardComponent } from './components/card/card.component';
     FileUploadComponent,
     DropZoneDirective,
     FileSizePipe,
-    CardComponent
+    CardComponent,
+    OutcomeComponent
   ],
   imports: [
     BrowserModule,

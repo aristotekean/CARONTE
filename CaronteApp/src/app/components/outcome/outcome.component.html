@@ -2,7 +2,7 @@
 
   <div class="d-inline-block" *ngFor="let user of values">
     <div class="card-body my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="overflow: hidden; border-radius: 1px;">
-      <img src="{{ user[0].url_foto }}" class="d-block w-full height">
+      <img src="{{ user[0][0].url_foto }}" class="d-block w-full height">
       <div class="px-2 py-2">
 
         <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
@@ -11,11 +11,11 @@
 
         <strong class="text-uppercase">Info Personal</strong>
         <ul>
-          <li><strong>ID: </strong> {{ user[0].persistedFaceId.persistedFaceId }}</li>
-          <li><strong>Nombre: </strong> {{ user[0].info_desaparecido.nombre }}</li>
-          <li><strong>Apellido: </strong> {{ user[0].info_desaparecido.apellido }}</li>
-          <li><strong>Edad: </strong> {{ user[0].info_desaparecido.edad }}</li>
-          <li><strong>País: </strong> {{ user[0].info_desaparecido.pais }}</li>
+          <li><strong>ID: </strong> {{ user[0][0].persistedFaceId.persistedFaceId }}</li>
+          <li><strong>Nombre: </strong> {{ user[0][0].info_desaparecido.nombre }}</li>
+          <li><strong>Apellido: </strong> {{ user[0][0].info_desaparecido.apellido }}</li>
+          <li><strong>Edad: </strong> {{ user[0][0].info_desaparecido.edad }}</li>
+          <li><strong>País: </strong> {{ user[0][0].info_desaparecido.pais }}</li>
         </ul>
 
         <hr>
@@ -23,14 +23,18 @@
         <strong class="text-uppercase">Info de contacto</strong>
 
         <ul>
-          <li><strong>Nombre:  </strong> {{ user[0].info_contacto.nombre }}</li>
-          <li><strong>Apellido:  </strong> {{ user[0].info_contacto.apellido }}</li>
-          <li><strong>País:  </strong> {{ user[0].info_contacto.pais }}</li>
-          <li><strong>Ciudad:  </strong> {{ user[0].info_contacto.ciudad }}</li>
-          <li><strong>Dirección:  </strong> {{ user[0].info_contacto.direccion }}</li>
-          <li><strong>Teléono:  </strong> {{ user[0].info_contacto.telefono }}</li>
-          <li><strong>Email:  </strong> {{ user[0].info_contacto.email }}</li>
+          <li><strong>Nombre:  </strong> {{ user[0][0].info_contacto.nombre }}</li>
+          <li><strong>Apellido:  </strong> {{ user[0][0].info_contacto.apellido }}</li>
+          <li><strong>País:  </strong> {{ user[0][0].info_contacto.pais }}</li>
+          <li><strong>Ciudad:  </strong> {{ user[0][0].info_contacto.ciudad }}</li>
+          <li><strong>Dirección:  </strong> {{ user[0][0].info_contacto.direccion }}</li>
+          <li><strong>Teléono:  </strong> {{ user[0][0].info_contacto.telefono }}</li>
+          <li><strong>Email:  </strong> {{ user[0][0].info_contacto.email }}</li>
         </ul>
+
+        <hr>
+
+        <h3>Confianza: {{ user[1] | percent }}</h3>
 
       </div>
 

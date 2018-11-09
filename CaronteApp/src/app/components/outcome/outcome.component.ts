@@ -41,19 +41,22 @@ export class OutcomeComponent implements OnInit {
       console.warn(this.persistedFaceId);
 
       this.persistedFaceId.forEach(element => {
-        console.error(element.confidence);
+        // console.error(element.confidence);
         this.usersColletion = this._crudService.afs.collection('users', ref => {
           return ref.where('persistedFaceId.persistedFaceId', '==', element.persistedFaceId);
         });
+
         this.users = this.usersColletion.valueChanges();
         this.users.subscribe(
           data => {
-            console.log(data);
+            const datos = [data, element.confidence];
+            console.log(datos);
             if ( data.length === 1 ) {
-              this.values.push(data);
+              this.values.push(datos);
             }
           }
         );
+
       });
 
     }, 1000);

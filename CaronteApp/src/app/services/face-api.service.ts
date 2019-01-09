@@ -19,7 +19,7 @@ export class FaceApiService {
 
     const headers = new Headers({
       'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': '75d50f59332f4867b2ac1af7d6e85d62'
+      'Ocp-Apim-Subscription-Key': 'AZURE-SUBSCRIPTION-KEY'
     });
 
     const options = new RequestOptions({ headers });

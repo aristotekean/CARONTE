@@ -16,7 +16,7 @@ export class FaceAddService {
 
     const headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
-    .set('Ocp-Apim-Subscription-Key', '75d50f59332f4867b2ac1af7d6e85d62');
+    .set('Ocp-Apim-Subscription-Key', 'AZURE-SUBSCRIPTION-KEY');
 
     this._httpClient.post(this.endpoint,
       {

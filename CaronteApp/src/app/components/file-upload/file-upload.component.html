@@ -1,28 +1,66 @@
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-xs-12 bx--col-md-6">
-      <div class="bx--form-item bottom">
-        <strong class="bx--label">Selecciona una foto desde su dispositivo o carga una dirección web (URL).</strong>
+<div class="bx--row">
+  <div class="bx--col-xs-12 bx--col-md-6">
+    <div class="bx--form-item bottom">
+      <strong class="bx--label">Selecciona una foto desde su dispositivo o carga una dirección web (URL).</strong>
 
-        <p class="bx--label-description">
-          <span class="bx--tag bx--tag--third-party">IMPORTANTE</span>
-          Solo se permiten imágenes en formato .jpg y .png</p>
-        <div class="bx--file" data-file>
-          <label for="myFile" class="bx--file-btn bx--btn bx--btn--secondary" role="button" tabindex="0">Subir foto</label>
-          <input type="file" class="bx--file-input" id="myFile" data-file-uploader data-target="[data-file-container]"
-            multiple />
-          <div data-file-container class="bx--file-container"></div>
+      <p class="bx--label-description">
+        <span class="bx--tag bx--tag--third-party">IMPORTANTE</span>
+        Solo se permiten imágenes en formato .jpg y .png</p>
+
+
+      <!-- DROPZONE -->
+
+      <div class="dropzone bx--col-xs-12" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+        [class.hovering]="isHovering">
+
+        <h3>Arrastre la foto hasta aquí</h3>
+
+        <div class="file">
+          <div class="bx--form-item">
+            <label for="text-input-3" class="bx--label">También puedes seleccionar un archivo</label>
+            <input class="file-input" type="file" access=".png,.jpg" (change)="startUpload($event.target.files)">
+          </div>
         </div>
 
-        <div class="bx--form-item">
-          <label for="text-input-3" class="bx--label">Subir URL</label>
-          <input [(ngModel)]="imgUrl" id="text-input-3" type="text" class="bx--text-input" placeholder="https://www.dominio.com/mi-foto.jpg">
-        </div>
-        <button (click)="getUrl(imgUrl)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
+        <span *ngIf="unsupportedFile != ''" class="bx--tag bx--tag--dedicated">{{unsupportedFile}}</span>
+
+      </div>
+
+      <div class="bx--col-xs-12" *ngIf="percentage | async as pct">
+
+        <progress class="progress is-info" [value]="pct" max="100">
+        </progress>
+
+        {{ pct | number }}%
+
+      </div>
+
+
+      <div *ngIf="snapshot | async as snap">
+        {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+
+        <button (click)="task.pause()" class="bx--btn bx--btn--secondary bx--btn--sm" [disabled]="!isActive(snap)">Pausar</button>
+        <button (click)="task.cancel()" class="bx--btn bx--btn--danger bx--btn--sm" aria-label="danger" aria-label="danger"
+          [disabled]="!isActive(snap)">Cancelar</button>
+        <button (click)="task.resume()" class="bx--btn bx--btn--tertiary bx--btn--sm" [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+
       </div>
     </div>
-    <div class="bx--col-xs-12 bx--col-md-6">
-        <pre>{{ datos | json }}</pre>
+
+    <div *ngIf="downloadURL == undefined">
+      <div class="bx--form-item">
+        <label for="text-input-3" class="bx--label">Subir URL</label>
+        <input [(ngModel)]="imgUrl" id="text-input-3" type="text" class="bx--text-input" placeholder="https://www.dominio.com/mi-foto.jpg">
+      </div>
+      <button (click)="sendUrl(imgUrl)" class="bx--btn bx--btn--secondary" type="button">Cargar URL</button>
+    </div>
+
+  </div>
+
+  <div class="bx--col-xs-12 bx--col-md-6">
+    <div *ngIf="dataApi != undefined">
+      <app-card [dataApi]="dataApi"></app-card>
     </div>
   </div>
+
 </div>

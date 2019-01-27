@@ -7,30 +7,31 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 })
 export class CrudService {
 
-  constructor( private afs: AngularFirestore ) {
-    console.log('Service CRUD On');
-   }
+  constructor( public afs: AngularFirestore ) {}
 
-   // Crea un nuevo paciente
+  dataShared: any;
+
+   // Crea un nuevo usuario
   public createUser(data: {
-    nombre: string,
-    documento: string,
-    ciudad: string,
-    url: string}) {
+    url_foto: string,
+    info_desaparecido: {},
+    info_contacto: {},
+    data_api: {}
+  }) {
     return this.afs.collection('users').add(data);
   }
 
-  // Obtiene un paciente
+  // Obtiene un usuario
   public getUser(documentId: string) {
     return this.afs.collection('users').doc(documentId).snapshotChanges();
   }
 
-  // Obtiene todos los pacientes
+  // Obtiene todos los usuarios
   public getUsers() {
    return this.afs.collection('users').snapshotChanges();
   }
 
-  // Actualiza un paciente
+  // Actualiza un usuario
   public updateUser(documentId: string, data: {
     nombre?: string,
     documento?: string,
@@ -39,9 +40,20 @@ export class CrudService {
     return this.afs.collection('users').doc(documentId).set(data);
   }
 
-  // Borrar un paciente
+  // Borrar un usuario
   public deleteUser(documentId: string) {
     return this.afs.collection('users').doc(documentId).delete();
+  }
+
+  public sharedData(imgUrl, data) {
+    this.dataShared = {
+      urlImg: imgUrl,
+      dataApi: data
+    };
+  }
+
+  public getData() {
+    return this.dataShared;
   }
 
 }

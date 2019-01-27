@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map, tap } from 'rxjs/operators';
+import { FindSimilarService } from './find-similar.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaceApiService {
 
-  private url = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=age,gender,smile,glasses,emotion';
+  params = 'age,gender,headPose,smile,facialHair,glasses,emotion,' +
+  'hair,makeup,occlusion,accessories,blur,exposure,noise';
 
-  constructor( private http: Http ) { }
+  private url = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=' + this.params;
+
+  constructor( private http: Http, public _findSimilarService: FindSimilarService ) { }
 
   getApiData( imgUrl: String ) {
 
-    console.log(imgUrl);
-
     const headers = new Headers({
       'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': '75d50f59332f4867b2ac1af7d6e85d62'
+      'Ocp-Apim-Subscription-Key': 'AZURE-SUBSCRIPTION-KEY'
     });
 
     const options = new RequestOptions({ headers });
 
     return this.http.post( this.url, { url: imgUrl }, options )
     .pipe( map( data => data.json() ),
-    tap( result => console.log( result ) ) );
+    tap( result => {
+      console.warn( 'Respuesta API', result );
+      this._findSimilarService.httpPost( result[0].faceId );
+    }) );
   }
 
 }

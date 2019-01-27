@@ -1,22 +1,28 @@
-<p>
-  search works!
-</p>
+<div class="bx--grid">
 
-<div class="bx--grid bottom">
-
-  <div class="bx--row">
-    <div class="bx--offset-xs-2 bx--col-xs-10">
-
-        <h1>Subir fotografía</h1>
-        <app-file-upload></app-file-upload>
-
-    </div>
+  <div class="bx--row header">
+    <h1 class="title">Buscar desaparecido</h1>
   </div>
 
   <div class="bx--row">
-    <div class="bx--offset-xs-2 bx--col-xs-10" *ngFor="let users of users">
-      <h1>Test: {{ users.data.test }}</h1>
+    <p>Sabemos lo difícil que puede ser encontrar un familiar, amigo o conocido que ha desaparecido, <br>
+      <strong>Caronte</strong> puede busca en una gran base de datos en tan solo unos segundos.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="bx--row">
+    <div class="bx--col-xs-10">
+
+      <h1>Subir fotografía</h1>
+      <app-file-upload (valueChange)="displayCounter($event)" ></app-file-upload>
+
     </div>
   </div>
 
 </div>
+
+<app-outcome *ngIf="seeOutcome == true" ></app-outcome>
+
+<app-footer></app-footer>

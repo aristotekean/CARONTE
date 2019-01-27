@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  seeOutcome = false;
 
-  ngOnInit() {
+  displayCounter(count) {
+    this.seeOutcome = count;
   }
+  constructor( public _crudService: CrudService ) { }
+
+  ngOnInit() {}
 
 }

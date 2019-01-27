@@ -1,0 +1,22 @@
+<div class="card-body my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="overflow: hidden; border-radius: 1px;">
+  <img src="{{ dataApi.imgUrl }}" class="d-block w-full height">
+  <div class="px-2 py-2">
+    <p class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
+      Características detectadas
+    </p>
+
+    <p><strong>Faceid: </strong> {{ dataApi.dataApi[0].faceId }}</p>
+
+    <ul>
+      <li><strong>Género: </strong> {{ dataApi.dataApi[0].faceAttributes.gender }}</li>
+      <li><strong>Edad: </strong> {{ dataApi.dataApi[0].faceAttributes.age }}</li>
+    </ul>
+
+    <ul>
+      <li><strong>Sonrisa: </strong> {{ dataApi.dataApi[0].faceAttributes.smile }}</li>
+      <li><strong>Gafas: </strong> {{ dataApi.dataApi[0].faceAttributes.glasses }}</li>
+    </ul>
+
+  </div>
+
+</div>
